@@ -4,11 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin Panel — QuizGame</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <nav class="navbar">
-    <a href="dashboard.html" class="logo">🎯 QuizGame</a>
+    <a href="dashboard.html" class="logo" aria-label="QuizGame home">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+          <circle cx="12" cy="12" r="8" />
+          <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none" />
+        </svg>
+      </span>
+      <span class="logo-word">QuizGame</span>
+    </a>
     <div class="nav-links">
       <a href="dashboard.html">Dashboard</a>
       <a href="leaderboard.html">Leaderboard</a>
@@ -16,18 +27,24 @@
       <a href="admin.html" id="adminLink" class="active">Admin</a>
     </div>
     <div class="nav-right">
-      <button id="themeToggle" class="icon-btn" title="Toggle light/dark mode">🌙</button>
+      <button id="themeToggle" class="icon-btn" title="Toggle light/dark mode" aria-label="Toggle color theme"></button>
       <span id="navUserName" class="nav-user"></span>
-      <button id="logoutBtn" class="btn btn-small">Logout</button>
+      <button id="logoutBtn" class="btn btn-small">Log out</button>
     </div>
   </nav>
 
   <main class="container">
-    <h1 class="fade-in">🛠️ Admin Panel</h1>
+    <div class="page-head fade-in">
+      <span class="eyebrow">Administration</span>
+      <h1>Admin panel</h1>
+    </div>
 
     <div id="accessDenied" class="card center hidden">
-      <p class="error-text">⛔ Access denied — this area is for admins only.</p>
-      <a href="dashboard.html" class="btn">← Back to Dashboard</a>
+      <p class="error-text">Access denied — this area is for admins only.</p>
+      <a href="dashboard.html" class="btn" style="margin-top:1rem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M11 18l-6-6 6-6"/></svg>
+        Back to dashboard
+      </a>
     </div>
 
     <div id="adminContent" class="hidden">
@@ -41,7 +58,7 @@
       <!-- Questions list -->
       <section id="tab-questions" class="tab-panel card table-wrap">
         <div class="row-between">
-          <h2>All Questions</h2>
+          <h2>All questions</h2>
           <label class="inline">Filter:
             <select id="adminCategoryFilter"><option value="">All categories</option></select>
           </label>
@@ -51,14 +68,14 @@
             <tr><th>Question</th><th>Category</th><th>Difficulty</th><th>Actions</th></tr>
           </thead>
           <tbody id="adminQuestionsBody">
-            <tr><td colspan="4" class="center muted">Loading… ⏳</td></tr>
+            <tr><td colspan="4" class="center muted">Loading…</td></tr>
           </tbody>
         </table>
       </section>
 
       <!-- Add / edit question -->
       <section id="tab-add" class="tab-panel card hidden">
-        <h2 id="questionFormTitle">Add Question</h2>
+        <h2 id="questionFormTitle">Add question</h2>
         <div id="qFormError" class="error-box hidden"></div>
         <form id="questionForm" novalidate>
           <input type="hidden" id="qId" />
@@ -92,30 +109,30 @@
           </label>
           <label>Explanation<textarea id="qExplanation" rows="2" placeholder="Short explanation shown after answering"></textarea></label>
           <div class="row-between">
-            <button type="submit" class="btn btn-primary" id="qSubmitBtn">Add Question</button>
-            <button type="button" class="btn hidden" id="qCancelBtn">Cancel Edit</button>
+            <button type="submit" class="btn btn-primary" id="qSubmitBtn">Add question</button>
+            <button type="button" class="btn hidden" id="qCancelBtn">Cancel edit</button>
           </div>
         </form>
       </section>
 
       <!-- Users -->
       <section id="tab-users" class="tab-panel card table-wrap hidden">
-        <h2>Registered Users</h2>
+        <h2>Registered users</h2>
         <table class="table">
           <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Joined</th></tr></thead>
           <tbody id="adminUsersBody">
-            <tr><td colspan="4" class="center muted">Loading… ⏳</td></tr>
+            <tr><td colspan="4" class="center muted">Loading…</td></tr>
           </tbody>
         </table>
       </section>
 
       <!-- Results -->
       <section id="tab-results" class="tab-panel card table-wrap hidden">
-        <h2>All Quiz Results</h2>
+        <h2>All quiz results</h2>
         <table class="table">
-          <thead><tr><th>Player</th><th>Score</th><th>Accuracy</th><th>Category</th><th>Difficulty</th><th>Date</th></tr></thead>
+          <thead><tr><th>Player</th><th class="num">Score</th><th class="num">Accuracy</th><th>Category</th><th>Difficulty</th><th>Date</th></tr></thead>
           <tbody id="adminResultsBody">
-            <tr><td colspan="6" class="center muted">Loading… ⏳</td></tr>
+            <tr><td colspan="6" class="center muted">Loading…</td></tr>
           </tbody>
         </table>
       </section>
