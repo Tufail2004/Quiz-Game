@@ -64,6 +64,10 @@ function requireGuest() {
 }
 
 // ---------- Theme ----------
+// Sun / moon icons for the theme toggle (inline SVG, no emoji).
+const ICON_MOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>';
+const ICON_SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+
 function initTheme() {
   const saved = localStorage.getItem('quizTheme') || 'dark';
   document.documentElement.setAttribute('data-theme', saved);
@@ -78,14 +82,25 @@ function toggleTheme() {
 }
 function updateThemeIcon() {
   const btn = document.getElementById('themeToggle');
-  if (btn) btn.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? '🌙' : '☀️';
+  if (btn) btn.innerHTML = document.documentElement.getAttribute('data-theme') === 'dark' ? ICON_MOON : ICON_SUN;
 }
 
 // ---------- Navbar ----------
 function renderNav() {
   const user = getUser();
   const nameEl = document.getElementById('navUserName');
-  if (nameEl && user) nameEl.textContent = `👤 ${user.name}`;
+  if (nameEl && user) {
+    // Avatar circle with the user's initial + their name (hides name on mobile).
+    const initial = (user.name || '?').trim().charAt(0).toUpperCase();
+    nameEl.innerHTML = '';
+    const avatar = document.createElement('span');
+    avatar.className = 'avatar';
+    avatar.textContent = initial;
+    const uname = document.createElement('span');
+    uname.className = 'uname';
+    uname.textContent = user.name;
+    nameEl.append(avatar, uname);
+  }
 
   const adminLink = document.getElementById('adminLink');
   if (adminLink && user && user.role === 'admin') adminLink.classList.remove('hidden');
