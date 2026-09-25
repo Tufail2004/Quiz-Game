@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — QuizGame</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="dashboard.html" class="logo">🎯 QuizGame</a>
+    <div class="nav-links">
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="history.html">History</a>
+      <a href="admin.html" id="adminLink" class="hidden">Admin</a>
+    </div>
+    <div class="nav-right">
+      <button id="themeToggle" class="icon-btn" title="Toggle light/dark mode">🌙</button>
+      <span id="navUserName" class="nav-user"></span>
+      <button id="logoutBtn" class="btn btn-small">Logout</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h1 id="welcomeHeading" class="fade-in">Welcome! 👋</h1>
+
+    <section class="stats-grid">
+      <div class="stat-card slide-up">
+        <div class="stat-value" id="statQuizzes">0</div>
+        <div class="stat-label">Quizzes Played</div>
+      </div>
+      <div class="stat-card slide-up">
+        <div class="stat-value" id="statHighest">0</div>
+        <div class="stat-label">Highest Score</div>
+      </div>
+      <div class="stat-card slide-up">
+        <div class="stat-value" id="statAverage">0%</div>
+        <div class="stat-label">Average Score</div>
+      </div>
+      <div class="stat-card slide-up">
+        <div class="stat-value" id="statCorrect">0</div>
+        <div class="stat-label">Total Correct Answers</div>
+      </div>
+    </section>
+
+    <section class="card fade-in">
+      <h2>Start a New Quiz 🎮</h2>
+      <div class="quiz-setup">
+        <label>
+          Category
+          <select id="categorySelect">
+            <option value="JavaScript">JavaScript</option>
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="Node.js">Node.js</option>
+            <option value="MongoDB">MongoDB</option>
+            <option value="General Knowledge">General Knowledge</option>
+            <option value="Science">Science</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Programming">Programming</option>
+          </select>
+        </label>
+        <label>
+          Difficulty
+          <select id="difficultySelect">
+            <option value="mixed">Mixed</option>
+            <option value="easy">Easy (10 pts)</option>
+            <option value="medium">Medium (20 pts)</option>
+            <option value="hard">Hard (30 pts)</option>
+          </select>
+        </label>
+        <button id="startQuizBtn" class="btn btn-primary btn-large">Start Quiz</button>
+      </div>
+      <p class="hint">10 questions · 30 seconds each · no repeats in a session</p>
+    </section>
+
+    <section class="card fade-in">
+      <h2>Recent Quizzes 🕘</h2>
+      <div id="recentList" class="recent-list">
+        <p class="muted">No quizzes yet — play your first one above!</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
