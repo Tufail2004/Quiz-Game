@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz History — QuizGame</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="dashboard.html" class="logo">🎯 QuizGame</a>
+    <div class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="history.html" class="active">History</a>
+      <a href="admin.html" id="adminLink" class="hidden">Admin</a>
+    </div>
+    <div class="nav-right">
+      <button id="themeToggle" class="icon-btn" title="Toggle light/dark mode">🌙</button>
+      <span id="navUserName" class="nav-user"></span>
+      <button id="logoutBtn" class="btn btn-small">Logout</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h1 class="fade-in">🕘 Quiz History</h1>
+    <p class="muted">Every quiz you've completed, newest first.</p>
+
+    <div id="historyList" class="history-list fade-in">
+      <p class="muted">Loading… ⏳</p>
+    </div>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/history.js"></script>
+</body>
+</html>
