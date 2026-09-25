@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Results — QuizGame</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="dashboard.html" class="logo">🎯 QuizGame</a>
+    <div class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="history.html">History</a>
+      <a href="admin.html" id="adminLink" class="hidden">Admin</a>
+    </div>
+    <div class="nav-right">
+      <button id="themeToggle" class="icon-btn" title="Toggle light/dark mode">🌙</button>
+      <span id="navUserName" class="nav-user"></span>
+      <button id="logoutBtn" class="btn btn-small">Logout</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div id="resultCard" class="card result-card fade-in hidden">
+      <h1>Quiz Completed! 🎉</h1>
+      <p id="performanceMsg" class="performance-msg"></p>
+
+      <div class="big-score"><span id="finalScore">0</span></div>
+      <p class="muted">points</p>
+
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-value" id="rCorrect">0</div><div class="stat-label">Correct ✅</div></div>
+        <div class="stat-card"><div class="stat-value" id="rIncorrect">0</div><div class="stat-label">Incorrect ❌</div></div>
+        <div class="stat-card"><div class="stat-value" id="rUnanswered">0</div><div class="stat-label">Unanswered ⏭️</div></div>
+        <div class="stat-card"><div class="stat-value" id="rPercentage">0%</div><div class="stat-label">Accuracy</div></div>
+        <div class="stat-card"><div class="stat-value" id="rTotal">0</div><div class="stat-label">Total Questions</div></div>
+        <div class="stat-card"><div class="stat-value" id="rTime">0s</div><div class="stat-label">Time Taken</div></div>
+      </div>
+
+      <div class="result-actions">
+        <button id="playAgainBtn" class="btn btn-primary btn-large">🔁 Play Again</button>
+        <a href="dashboard.html" class="btn btn-large">Choose Category</a>
+        <a href="leaderboard.html" class="btn btn-large">🏆 View Leaderboard</a>
+      </div>
+    </div>
+
+    <div id="noResultBox" class="card center hidden">
+      <p>No result to show — play a quiz first!</p>
+      <a href="dashboard.html" class="btn btn-primary">Go to Dashboard</a>
+    </div>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/result.js"></script>
+</body>
+</html>
