@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz — QuizGame</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/quiz.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="dashboard.html" class="logo">🎯 QuizGame</a>
+    <div class="nav-right">
+      <button id="themeToggle" class="icon-btn" title="Toggle light/dark mode">🌙</button>
+      <span id="navUserName" class="nav-user"></span>
+      <button id="logoutBtn" class="btn btn-small">Logout</button>
+    </div>
+  </nav>
+
+  <main class="container quiz-page">
+    <div id="loadingBox" class="card center">
+      <p>Loading questions… ⏳</p>
+    </div>
+
+    <div id="quizBox" class="hidden">
+      <div class="quiz-meta">
+        <span id="questionCounter">Question 1 / 10</span>
+        <span class="score-chip">Score: <strong id="liveScore">0</strong></span>
+        <span class="timer" id="timer">30</span>
+      </div>
+
+      <div class="progress">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+
+      <div class="question-card fade-in" id="questionCard">
+        <span class="difficulty-badge" id="difficultyBadge">easy</span>
+        <h2 id="questionText"></h2>
+        <div class="options" id="options"></div>
+
+        <div class="explanation hidden" id="explanationBox">
+          <strong>💡 Explanation:</strong>
+          <p id="explanationText"></p>
+        </div>
+
+        <button id="nextBtn" class="btn btn-primary hidden">Next Question →</button>
+      </div>
+    </div>
+
+    <div id="errorBox" class="card center hidden">
+      <p id="errorText" class="error-text"></p>
+      <a href="dashboard.html" class="btn">← Back to Dashboard</a>
+    </div>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>
