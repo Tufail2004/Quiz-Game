@@ -32,8 +32,8 @@ function initResult() {
 }
 
 function performanceMessage(percentage) {
-  if (percentage >= 90) return 'Outstanding! You are a quiz master! 🏆';
-  if (percentage >= 70) return 'Great job! Keep it up! 🎉';
-  if (percentage >= 50) return 'Good effort — keep practicing! 💪';
-  return 'Every master was once a beginner. Try again! 📚';
+  if (percentage >= 90) return 'Outstanding — you are a quiz master.';
+  if (percentage >= 70) return 'Great job. Keep it up.';
+  if (percentage >= 50) return 'Good effort — keep practicing.';
+  return 'Every master was once a beginner. Try again.';
 }
