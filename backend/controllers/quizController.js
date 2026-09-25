@@ -123,4 +123,17 @@ async function submitResult(req, res, next) {
   }
 }
 
-module.exports = { getQuizQuestions, submitResult };
+// GET /api/quiz/results  (admin) — every quiz result, newest first,
+// with the player's name populated. Powers the admin panel.
+async function getAllResults(req, res, next) {
+  try {
+    const results = await QuizResult.find()
+      .sort({ createdAt: -1 })
+      .populate('user', 'name email');
+    res.json(results);
+  } catch (error) {
+    next(error);
+  }
+}
+
+module.exports = { getQuizQuestions, submitResult, getAllResults };
