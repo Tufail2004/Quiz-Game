@@ -5,6 +5,7 @@
 //   GET /api/users/history  (protected) -> the user's past quiz results
 
 const QuizResult = require('../models/QuizResult');
+const User = require('../models/User');
 
 // GET /api/users/profile
 async function getProfile(req, res, next) {
@@ -42,4 +43,15 @@ async function getHistory(req, res, next) {
   }
 }
 
-module.exports = { getProfile, getHistory };
+// GET /api/users  (admin) — list all registered users, newest first.
+// Passwords are stripped by User.toJSON.
+async function getAllUsers(req, res, next) {
+  try {
+    const users = await User.find().sort({ createdAt: -1 });
+    res.json(users);
+  } catch (error) {
+    next(error);
+  }
+}
+
+module.exports = { getProfile, getHistory, getAllUsers };
