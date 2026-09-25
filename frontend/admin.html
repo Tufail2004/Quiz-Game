@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel — QuizGame</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="dashboard.html" class="logo">🎯 QuizGame</a>
+    <div class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="history.html">History</a>
+      <a href="admin.html" id="adminLink" class="active">Admin</a>
+    </div>
+    <div class="nav-right">
+      <button id="themeToggle" class="icon-btn" title="Toggle light/dark mode">🌙</button>
+      <span id="navUserName" class="nav-user"></span>
+      <button id="logoutBtn" class="btn btn-small">Logout</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h1 class="fade-in">🛠️ Admin Panel</h1>
+
+    <div id="accessDenied" class="card center hidden">
+      <p class="error-text">⛔ Access denied — this area is for admins only.</p>
+      <a href="dashboard.html" class="btn">← Back to Dashboard</a>
+    </div>
+
+    <div id="adminContent" class="hidden">
+      <div class="tabs">
+        <button class="tab active" data-tab="questions">Questions</button>
+        <button class="tab" data-tab="add">Add Question</button>
+        <button class="tab" data-tab="users">Users</button>
+        <button class="tab" data-tab="results">Quiz Results</button>
+      </div>
+
+      <!-- Questions list -->
+      <section id="tab-questions" class="tab-panel card table-wrap">
+        <div class="row-between">
+          <h2>All Questions</h2>
+          <label class="inline">Filter:
+            <select id="adminCategoryFilter"><option value="">All categories</option></select>
+          </label>
+        </div>
+        <table class="table">
+          <thead>
+            <tr><th>Question</th><th>Category</th><th>Difficulty</th><th>Actions</th></tr>
+          </thead>
+          <tbody id="adminQuestionsBody">
+            <tr><td colspan="4" class="center muted">Loading… ⏳</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Add / edit question -->
+      <section id="tab-add" class="tab-panel card hidden">
+        <h2 id="questionFormTitle">Add Question</h2>
+        <div id="qFormError" class="error-box hidden"></div>
+        <form id="questionForm" novalidate>
+          <input type="hidden" id="qId" />
+          <label>Question<textarea id="qText" rows="2" required placeholder="e.g. What does HTML stand for?"></textarea></label>
+          <div class="grid-2">
+            <label>Option A<input id="qOpt0" required /></label>
+            <label>Option B<input id="qOpt1" required /></label>
+            <label>Option C<input id="qOpt2" required /></label>
+            <label>Option D<input id="qOpt3" required /></label>
+          </div>
+          <div class="grid-2">
+            <label>Correct answer
+              <select id="qCorrect">
+                <option value="0">Option A</option>
+                <option value="1">Option B</option>
+                <option value="2">Option C</option>
+                <option value="3">Option D</option>
+              </select>
+            </label>
+            <label>Difficulty
+              <select id="qDifficulty">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+              </select>
+            </label>
+          </div>
+          <label>Category
+            <input id="qCategory" list="categoryList" required placeholder="e.g. JavaScript (or type a new one)" />
+            <datalist id="categoryList"></datalist>
+          </label>
+          <label>Explanation<textarea id="qExplanation" rows="2" placeholder="Short explanation shown after answering"></textarea></label>
+          <div class="row-between">
+            <button type="submit" class="btn btn-primary" id="qSubmitBtn">Add Question</button>
+            <button type="button" class="btn hidden" id="qCancelBtn">Cancel Edit</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Users -->
+      <section id="tab-users" class="tab-panel card table-wrap hidden">
+        <h2>Registered Users</h2>
+        <table class="table">
+          <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Joined</th></tr></thead>
+          <tbody id="adminUsersBody">
+            <tr><td colspan="4" class="center muted">Loading… ⏳</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Results -->
+      <section id="tab-results" class="tab-panel card table-wrap hidden">
+        <h2>All Quiz Results</h2>
+        <table class="table">
+          <thead><tr><th>Player</th><th>Score</th><th>Accuracy</th><th>Category</th><th>Difficulty</th><th>Date</th></tr></thead>
+          <tbody id="adminResultsBody">
+            <tr><td colspan="6" class="center muted">Loading… ⏳</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
