@@ -106,7 +106,9 @@ function startTimer() {
 function updateTimerDisplay() {
   const el = document.getElementById('timer');
   el.textContent = timeLeft;
-  el.classList.toggle('low', timeLeft <= 10); // pulse red under 10s
+  const low = timeLeft <= 10; // pulse red under 10s
+  el.classList.toggle('low', low);
+  document.getElementById('timerWrap').classList.toggle('low', low);
 }
 
 // ---------- Answering ----------
@@ -205,6 +207,6 @@ async function finishQuiz() {
 function showError(message) {
   document.getElementById('loadingBox').classList.add('hidden');
   document.getElementById('quizBox').classList.add('hidden');
-  document.getElementById('errorText').textContent = `⚠️ ${message}`;
+  document.getElementById('errorText').textContent = message;
   document.getElementById('errorBox').classList.remove('hidden');
 }
