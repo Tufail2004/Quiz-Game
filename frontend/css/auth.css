@@ -1,0 +1,29 @@
+/* auth.css — layout for the login / register pages. */
+
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 4rem 1rem;
+  min-height: calc(100vh - 70px);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2.25rem;
+  box-shadow: var(--shadow);
+}
+
+.auth-card h2 { margin-bottom: 0.25rem; }
+.auth-sub { color: var(--muted); margin-bottom: 1.5rem; }
+
+.auth-switch { margin-top: 1.25rem; text-align: center; color: var(--muted); }
+
+@media (max-width: 480px) {
+  .auth-page { padding: 2rem 0.75rem; }
+  .auth-card { padding: 1.5rem; }
+}
