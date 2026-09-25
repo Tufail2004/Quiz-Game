@@ -4,11 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quiz History — QuizGame</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <nav class="navbar">
-    <a href="dashboard.html" class="logo">🎯 QuizGame</a>
+    <a href="dashboard.html" class="logo" aria-label="QuizGame home">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+          <circle cx="12" cy="12" r="8" />
+          <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none" />
+        </svg>
+      </span>
+      <span class="logo-word">QuizGame</span>
+    </a>
     <div class="nav-links">
       <a href="dashboard.html">Dashboard</a>
       <a href="leaderboard.html">Leaderboard</a>
@@ -16,18 +27,21 @@
       <a href="admin.html" id="adminLink" class="hidden">Admin</a>
     </div>
     <div class="nav-right">
-      <button id="themeToggle" class="icon-btn" title="Toggle light/dark mode">🌙</button>
+      <button id="themeToggle" class="icon-btn" title="Toggle light/dark mode" aria-label="Toggle color theme"></button>
       <span id="navUserName" class="nav-user"></span>
-      <button id="logoutBtn" class="btn btn-small">Logout</button>
+      <button id="logoutBtn" class="btn btn-small">Log out</button>
     </div>
   </nav>
 
   <main class="container">
-    <h1 class="fade-in">🕘 Quiz History</h1>
-    <p class="muted">Every quiz you've completed, newest first.</p>
+    <div class="page-head fade-in">
+      <span class="eyebrow">Your games</span>
+      <h1>Quiz history</h1>
+      <p>Every quiz you've completed, newest first.</p>
+    </div>
 
     <div id="historyList" class="history-list fade-in">
-      <p class="muted">Loading… ⏳</p>
+      <p class="muted">Loading…</p>
     </div>
   </main>
 
