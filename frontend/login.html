@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — QuizGame</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">🎯 QuizGame</a>
+    <div class="nav-right">
+      <button id="themeToggle" class="icon-btn" title="Toggle light/dark mode">🌙</button>
+    </div>
+  </nav>
+
+  <main class="auth-page">
+    <div class="auth-card fade-in">
+      <h2>Welcome back 👋</h2>
+      <p class="auth-sub">Log in to continue your quiz streak.</p>
+
+      <div id="formError" class="error-box hidden"></div>
+
+      <form id="loginForm" novalidate>
+        <label>
+          Email
+          <input type="email" id="email" placeholder="you@example.com" required />
+        </label>
+        <label>
+          Password
+          <input type="password" id="password" placeholder="Your password" required />
+        </label>
+        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Login</button>
+      </form>
+
+      <p class="auth-switch">
+        New here? <a href="register.html">Create an account</a>
+      </p>
+    </div>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
