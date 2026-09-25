@@ -9,7 +9,7 @@ async function initDashboard() {
 
   const user = getUser();
   if (user) {
-    document.getElementById('welcomeHeading').textContent = `Welcome, ${user.name}! 👋`;
+    document.getElementById('welcomeHeading').textContent = `Welcome, ${user.name}`;
   }
 
   try {
@@ -45,7 +45,7 @@ function renderRecent(recent) {
     const date = new Date(r.createdAt).toLocaleDateString();
     item.innerHTML = `
       <div><strong>${escapeHtml(r.category)}</strong> <span class="muted">(${escapeHtml(r.difficulty)})</span></div>
-      <div><strong>${r.percentage}%</strong> <span class="muted">· ${r.score} pts · ${date}</span></div>
+      <div><span class="pct num">${r.percentage}%</span> <span class="muted">· ${r.score} pts · ${date}</span></div>
     `;
     list.appendChild(item);
   }

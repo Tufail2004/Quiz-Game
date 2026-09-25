@@ -4,51 +4,79 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QuizGame — Test Your Knowledge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <nav class="navbar">
-    <a href="index.html" class="logo">🎯 QuizGame</a>
+    <a href="index.html" class="logo" aria-label="QuizGame home">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+          <circle cx="12" cy="12" r="8" />
+          <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none" />
+        </svg>
+      </span>
+      <span class="logo-word">QuizGame</span>
+    </a>
     <div class="nav-right">
-      <button id="themeToggle" class="icon-btn" title="Toggle light/dark mode">🌙</button>
-      <a href="login.html" class="btn btn-small">Login</a>
-      <a href="register.html" class="btn btn-small btn-primary">Sign Up</a>
+      <button id="themeToggle" class="icon-btn" title="Toggle light/dark mode" aria-label="Toggle color theme"></button>
+      <a href="login.html" class="btn btn-small">Log in</a>
+      <a href="register.html" class="btn btn-small btn-primary">Sign up</a>
     </div>
   </nav>
 
   <main class="landing">
     <section class="hero fade-in">
-      <h1>Test Your Knowledge.<br />Beat the Clock. 🏆</h1>
+      <span class="eyebrow">Node.js · Express · MongoDB</span>
+      <h1>Test your knowledge.<br /><span class="accent-word">Beat the clock.</span></h1>
       <p class="hero-sub">
-        A full-stack quiz game with timed questions, difficulty levels,
-        live leaderboards and detailed results — built with Node.js, Express and MongoDB.
+        Ten questions, thirty seconds each, scored by difficulty.
+        Climb the global leaderboard and track every result.
       </p>
       <div class="hero-actions">
-        <a href="register.html" class="btn btn-primary btn-large">Get Started</a>
+        <a href="register.html" class="btn btn-primary btn-large">
+          Start playing
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
         <a href="login.html" class="btn btn-large">I have an account</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><b class="num">10</b><span>questions per round</span></div>
+        <div class="hero-stat"><b class="num">30s</b><span>on the clock</span></div>
+        <div class="hero-stat"><b class="num">5</b><span>categories</span></div>
       </div>
     </section>
 
     <section class="features">
-      <div class="feature-card slide-up">
-        <div class="feature-icon">⏱️</div>
-        <h3>Timed Questions</h3>
-        <p>30 seconds per question. Answer fast — or lose the point.</p>
+      <div class="feature-card slide-up" style="--d:0.05s">
+        <div class="icon-tile" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+        </div>
+        <h3>Timed questions</h3>
+        <p>Thirty seconds per question. Answer fast — or lose the point.</p>
       </div>
-      <div class="feature-card slide-up">
-        <div class="feature-icon">📊</div>
-        <h3>Difficulty Levels</h3>
-        <p>Easy (10 pts), Medium (20 pts) and Hard (30 pts) questions.</p>
+      <div class="feature-card slide-up" style="--d:0.12s">
+        <div class="icon-tile" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 20h18"/><path d="M6 20v-7M11 20V8M16 20v-4M21 20V6"/></svg>
+        </div>
+        <h3>Difficulty levels</h3>
+        <p>Easy pays 10, medium 20, hard 30. Pick your poison — or mix them.</p>
       </div>
-      <div class="feature-card slide-up">
-        <div class="feature-icon">🏅</div>
-        <h3>Global Leaderboard</h3>
-        <p>Compete with players around the world for the top score.</p>
+      <div class="feature-card slide-up" style="--d:0.19s">
+        <div class="icon-tile" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M7 6H4a2 2 0 0 0 2 4h1M17 6h3a2 2 0 0 1-2 4h-1"/></svg>
+        </div>
+        <h3>Global leaderboard</h3>
+        <p>Every score is ranked worldwide. Take the top spot and hold it.</p>
       </div>
-      <div class="feature-card slide-up">
-        <div class="feature-icon">📈</div>
-        <h3>Track Progress</h3>
-        <p>Dashboard stats and full quiz history for every player.</p>
+      <div class="feature-card slide-up" style="--d:0.26s">
+        <div class="icon-tile" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+        </div>
+        <h3>Track progress</h3>
+        <p>Dashboard stats, accuracy trends and a full history of every game.</p>
       </div>
     </section>
   </main>

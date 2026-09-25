@@ -1,29 +1,32 @@
-/* auth.css — layout for the login / register pages. */
+/* auth.css — login / register pages. */
 
 .auth-page {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 4rem 1rem;
-  min-height: calc(100vh - 70px);
+  padding: 4.5rem 1rem;
+  min-height: calc(100vh - 68px);
+  background:
+    radial-gradient(560px 280px at 50% -60px, var(--accent-soft), transparent 70%);
 }
 
 .auth-card {
   width: 100%;
-  max-width: 420px;
+  max-width: 430px;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 2.25rem;
+  border-radius: 18px;
+  padding: 2.5rem 2.25rem;
   box-shadow: var(--shadow);
 }
 
-.auth-card h2 { margin-bottom: 0.25rem; }
-.auth-sub { color: var(--muted); margin-bottom: 1.5rem; }
+.auth-card .logo { margin-bottom: 1.75rem; }
+.auth-card h2 { font-size: 1.6rem; margin-bottom: 0.3rem; }
+.auth-sub { color: var(--muted); margin-bottom: 1.75rem; font-size: 0.98rem; }
 
-.auth-switch { margin-top: 1.25rem; text-align: center; color: var(--muted); }
+.auth-switch { margin-top: 1.5rem; text-align: center; color: var(--muted); font-size: 0.95rem; }
 
 @media (max-width: 480px) {
-  .auth-page { padding: 2rem 0.75rem; }
-  .auth-card { padding: 1.5rem; }
+  .auth-page { padding: 2.5rem 0.9rem; }
+  .auth-card { padding: 1.9rem 1.4rem; border-radius: 16px; }
 }

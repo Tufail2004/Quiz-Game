@@ -4,29 +4,43 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quiz — QuizGame</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/quiz.css" />
 </head>
 <body>
   <nav class="navbar">
-    <a href="dashboard.html" class="logo">🎯 QuizGame</a>
+    <a href="dashboard.html" class="logo" aria-label="QuizGame home">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+          <circle cx="12" cy="12" r="8" />
+          <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none" />
+        </svg>
+      </span>
+      <span class="logo-word">QuizGame</span>
+    </a>
     <div class="nav-right">
-      <button id="themeToggle" class="icon-btn" title="Toggle light/dark mode">🌙</button>
+      <button id="themeToggle" class="icon-btn" title="Toggle light/dark mode" aria-label="Toggle color theme"></button>
       <span id="navUserName" class="nav-user"></span>
-      <button id="logoutBtn" class="btn btn-small">Logout</button>
+      <button id="logoutBtn" class="btn btn-small">Log out</button>
     </div>
   </nav>
 
   <main class="container quiz-page">
     <div id="loadingBox" class="card center">
-      <p>Loading questions… ⏳</p>
+      <p class="muted">Loading questions…</p>
     </div>
 
     <div id="quizBox" class="hidden">
       <div class="quiz-meta">
-        <span id="questionCounter">Question 1 / 10</span>
-        <span class="score-chip">Score: <strong id="liveScore">0</strong></span>
-        <span class="timer" id="timer">30</span>
+        <span id="questionCounter" class="num">Question 1 / 10</span>
+        <span class="score-chip">Score <strong id="liveScore" class="num">0</strong></span>
+        <span class="timer-wrap" id="timerWrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          <span class="timer num" id="timer">30</span>
+        </span>
       </div>
 
       <div class="progress">
@@ -39,17 +53,26 @@
         <div class="options" id="options"></div>
 
         <div class="explanation hidden" id="explanationBox">
-          <strong>💡 Explanation:</strong>
+          <strong>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.3 1.1 2.2h5c0-.9.4-1.6 1.1-2.2A6 6 0 0 0 12 3Z"/></svg>
+            Explanation
+          </strong>
           <p id="explanationText"></p>
         </div>
 
-        <button id="nextBtn" class="btn btn-primary hidden">Next Question →</button>
+        <button id="nextBtn" class="btn btn-primary hidden">
+          Next question
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </button>
       </div>
     </div>
 
     <div id="errorBox" class="card center hidden">
       <p id="errorText" class="error-text"></p>
-      <a href="dashboard.html" class="btn">← Back to Dashboard</a>
+      <a href="dashboard.html" class="btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M11 18l-6-6 6-6"/></svg>
+        Back to dashboard
+      </a>
     </div>
   </main>
 

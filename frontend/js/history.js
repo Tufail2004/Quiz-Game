@@ -13,7 +13,7 @@ async function initHistory() {
     const history = await apiFetch('/users/history');
 
     if (history.length === 0) {
-      list.innerHTML = '<p class="muted">No quizzes yet — your results will appear here. 🎮</p>';
+      list.innerHTML = '<p class="muted">No quizzes yet — your results will appear here.</p>';
       return;
     }
 
@@ -24,19 +24,21 @@ async function initHistory() {
       item.className = 'history-item';
       item.innerHTML = `
         <div>
-          <strong>${escapeHtml(r.category)}</strong>
-          <span class="muted">(${escapeHtml(r.difficulty)})</span>
+          <h3>${escapeHtml(r.category)} <span class="muted">(${escapeHtml(r.difficulty)})</span></h3>
           <div class="meta">
-            ✅ ${r.correctAnswers} correct · ❌ ${r.incorrectAnswers} wrong ·
-            ⏭️ ${r.unanswered} unanswered · ⏱️ ${r.timeTaken}s · ${date}
+            <span>${r.correctAnswers} correct</span>
+            <span>${r.incorrectAnswers} wrong</span>
+            <span>${r.unanswered} unanswered</span>
+            <span>${r.timeTaken}s</span>
+            <span>${date}</span>
           </div>
         </div>
-        <div class="history-score">${r.percentage}%<div class="muted">${r.score} pts</div></div>
+        <div class="history-score">${r.percentage}%<small>${r.score} pts</small></div>
       `;
       list.appendChild(item);
     }
   } catch (error) {
-    list.innerHTML = `<p class="error-text">⚠️ ${escapeHtml(error.message)}</p>`;
+    list.innerHTML = `<p class="error-text">${escapeHtml(error.message)}</p>`;
   }
 }
 
