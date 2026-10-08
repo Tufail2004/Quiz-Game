@@ -13,7 +13,7 @@ async function initHistory() {
     const history = await apiFetch('/users/history');
 
     if (history.length === 0) {
-      list.innerHTML = '<p class="muted">No quizzes yet — your results will appear here.</p>';
+      list.innerHTML = '<p class="muted">No games yet — play one and it will show up here! 🎮</p>';
       return;
     }
 
