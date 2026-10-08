@@ -17,6 +17,7 @@ const questionRoutes = require('./routes/questionRoutes');
 const quizRoutes = require('./routes/quizRoutes');
 const userRoutes = require('./routes/userRoutes');
 const leaderboardRoutes = require('./routes/leaderboardRoutes');
+const autoSeed = require('./utils/autoSeed');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -28,7 +29,9 @@ app.use(cors());
 app.use(express.json());
 
 // --- Database ---
-connectDB();
+// After connecting, seed the starter questions if the collection is empty
+// (so a fresh hosted database populates itself on first deploy).
+connectDB().then(autoSeed);
 
 // --- API routes ---
 app.use('/api/auth', authRoutes);
