@@ -1,57 +1,45 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign up — QuizGame</title>
+  <title>Join free — QuizGame 🎉</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/auth.css" />
 </head>
 <body>
   <nav class="navbar">
     <a href="index.html" class="logo" aria-label="QuizGame home">
-      <span class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
-          <circle cx="12" cy="12" r="8" />
-          <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none" />
-        </svg>
-      </span>
+      <span class="logo-mark" aria-hidden="true">🎮</span>
       <span class="logo-word">QuizGame</span>
     </a>
     <div class="nav-right">
-      <button id="themeToggle" class="icon-btn" title="Toggle light/dark mode" aria-label="Toggle color theme"></button>
+      <button id="themeToggle" class="icon-btn" title="Day / night mode" aria-label="Toggle color theme"></button>
     </div>
   </nav>
 
   <main class="auth-page">
-    <div class="auth-card fade-in">
-      <h2>Create your account</h2>
-      <p class="auth-sub">Join QuizGame and start climbing the leaderboard.</p>
-
+    <div class="auth-card tape">
+      <span class="mascot" aria-hidden="true">🎉</span>
+      <h1>Join the fun!</h1>
+      <p class="sub">Create your free account and start playing in seconds! ⭐</p>
       <div id="formError" class="error-box hidden"></div>
-
       <form id="registerForm" novalidate>
-        <label>
-          Name
-          <input type="text" id="name" placeholder="Your name" required autocomplete="name" />
+        <label>Your name
+          <input type="text" id="name" required placeholder="Pick a cool name 😎" autocomplete="name" />
         </label>
-        <label>
-          Email
-          <input type="email" id="email" placeholder="you@example.com" required autocomplete="email" />
+        <label>Email
+          <input type="email" id="email" required placeholder="you@example.com" autocomplete="email" />
         </label>
-        <label>
-          Password
-          <input type="password" id="password" placeholder="At least 6 characters" required minlength="6" autocomplete="new-password" />
+        <label>Password
+          <input type="password" id="password" required minlength="6" placeholder="At least 6 characters 🔒" autocomplete="new-password" />
         </label>
-        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Sign up</button>
+        <button type="submit" class="btn btn-primary" id="submitBtn" style="width:100%">Create my account! 🎮</button>
       </form>
-
-      <p class="auth-switch">
-        Already have an account? <a href="login.html">Log in</a>
-      </p>
+      <p class="auth-alt">Already playing? <a href="login.html">Log in 👋</a></p>
     </div>
   </main>
 

@@ -1,64 +1,53 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Leaderboard — QuizGame</title>
+  <title>Top players — QuizGame 🏆</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <nav class="navbar">
     <a href="dashboard.html" class="logo" aria-label="QuizGame home">
-      <span class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
-          <circle cx="12" cy="12" r="8" />
-          <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none" />
-        </svg>
-      </span>
+      <span class="logo-mark" aria-hidden="true">🎮</span>
       <span class="logo-word">QuizGame</span>
     </a>
     <div class="nav-links">
-      <a href="dashboard.html">Dashboard</a>
-      <a href="leaderboard.html" class="active">Leaderboard</a>
-      <a href="history.html">History</a>
-      <a href="admin.html" id="adminLink" class="hidden">Admin</a>
+      <a href="dashboard.html">🏠 Home</a>
+      <a href="leaderboard.html" class="active">🏆 Ranks</a>
+      <a href="history.html">📚 My games</a>
+      <a href="admin.html" id="adminLink" class="hidden">🛠️ Admin</a>
     </div>
     <div class="nav-right">
-      <button id="themeToggle" class="icon-btn" title="Toggle light/dark mode" aria-label="Toggle color theme"></button>
+      <button id="themeToggle" class="icon-btn" title="Day / night mode" aria-label="Toggle color theme"></button>
       <span id="navUserName" class="nav-user"></span>
-      <button id="logoutBtn" class="btn btn-small">Log out</button>
+      <button id="logoutBtn" class="btn btn-small">Bye! 👋</button>
     </div>
   </nav>
 
   <main class="container">
-    <div class="page-head fade-in">
-      <span class="eyebrow">All time</span>
-      <h1>Global leaderboard</h1>
-      <p>Top 20 scores across all players.</p>
+    <div class="page-head bounce-in">
+      <span class="eyebrow">🏆 Hall of fame</span>
+      <h1>Top players!</h1>
+      <p>The best of the best — can you beat them? 😎</p>
     </div>
 
-    <div class="card table-wrap fade-in">
+    <div class="card table-wrap">
       <table class="table" id="leaderboardTable">
         <thead>
-          <tr>
-            <th>Rank</th>
-            <th>Player</th>
-            <th class="num">Score</th>
-            <th class="num">Accuracy</th>
-            <th>Category</th>
-            <th>Difficulty</th>
-            <th>Date</th>
-          </tr>
+          <tr><th>Rank</th><th>Player</th><th class="num">Score</th><th class="num">Awesome %</th><th>Topic</th><th>Level</th><th>Date</th></tr>
         </thead>
         <tbody id="leaderboardBody">
-          <tr><td colspan="7" class="center muted">Loading…</td></tr>
+          <tr><td colspan="7" class="center muted">Loading the champions... ⏳</td></tr>
         </tbody>
       </table>
     </div>
   </main>
+
+  <footer class="footer">Made with 💖 for curious minds · QuizGame</footer>
 
   <script src="js/common.js"></script>
   <script src="js/leaderboard.js"></script>

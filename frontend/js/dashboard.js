@@ -9,7 +9,7 @@ async function initDashboard() {
 
   const user = getUser();
   if (user) {
-    document.getElementById('welcomeHeading').textContent = `Welcome, ${user.name}`;
+    document.getElementById('welcomeHeading').textContent = `Hi ${user.name}! 👋🎉`;
   }
 
   try {

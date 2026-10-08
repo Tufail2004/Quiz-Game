@@ -1,104 +1,73 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard — QuizGame</title>
+  <title>My Dashboard — QuizGame 🎮</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <nav class="navbar">
     <a href="dashboard.html" class="logo" aria-label="QuizGame home">
-      <span class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
-          <circle cx="12" cy="12" r="8" />
-          <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none" />
-        </svg>
-      </span>
+      <span class="logo-mark" aria-hidden="true">🎮</span>
       <span class="logo-word">QuizGame</span>
     </a>
     <div class="nav-links">
-      <a href="dashboard.html" class="active">Dashboard</a>
-      <a href="leaderboard.html">Leaderboard</a>
-      <a href="history.html">History</a>
-      <a href="admin.html" id="adminLink" class="hidden">Admin</a>
+      <a href="dashboard.html" class="active">🏠 Home</a>
+      <a href="leaderboard.html">🏆 Ranks</a>
+      <a href="history.html">📚 My games</a>
+      <a href="admin.html" id="adminLink" class="hidden">🛠️ Admin</a>
     </div>
     <div class="nav-right">
-      <button id="themeToggle" class="icon-btn" title="Toggle light/dark mode" aria-label="Toggle color theme"></button>
+      <button id="themeToggle" class="icon-btn" title="Day / night mode" aria-label="Toggle color theme"></button>
       <span id="navUserName" class="nav-user"></span>
-      <button id="logoutBtn" class="btn btn-small">Log out</button>
+      <button id="logoutBtn" class="btn btn-small">Bye! 👋</button>
     </div>
   </nav>
 
   <main class="container">
-    <div class="page-head fade-in">
-      <span class="eyebrow">Your dashboard</span>
-      <h1 id="welcomeHeading">Welcome!</h1>
+    <div class="page-head bounce-in">
+      <span class="eyebrow">🌟 Your playground</span>
+      <h1 id="welcomeHeading">Hi there! 👋</h1>
+      <p>Pick a game and let's have some fun!</p>
     </div>
 
-    <section class="stats-grid">
-      <div class="stat-card slide-up highlight" style="--d:0.05s">
-        <div class="stat-value num" id="statHighest">0</div>
-        <div class="stat-label">Highest score</div>
-      </div>
-      <div class="stat-card slide-up" style="--d:0.1s">
-        <div class="stat-value num" id="statQuizzes">0</div>
-        <div class="stat-label">Quizzes played</div>
-      </div>
-      <div class="stat-card slide-up" style="--d:0.15s">
-        <div class="stat-value num" id="statAverage">0%</div>
-        <div class="stat-label">Average score</div>
-      </div>
-      <div class="stat-card slide-up" style="--d:0.2s">
-        <div class="stat-value num" id="statCorrect">0</div>
-        <div class="stat-label">Correct answers</div>
-      </div>
-    </section>
+    <div class="stat-grid">
+      <div class="stat-card pop-in"><span class="sicon">🎮</span><b id="statQuizzes" class="num">0</b><span>Games played</span></div>
+      <div class="stat-card pop-in"><span class="sicon">⭐</span><b id="statHighest" class="num">0</b><span>Best score</span></div>
+      <div class="stat-card pop-in"><span class="sicon">🎯</span><b id="statAverage" class="num">0%</b><span>Average</span></div>
+      <div class="stat-card pop-in"><span class="sicon">✅</span><b id="statCorrect" class="num">0</b><span>Right answers</span></div>
+    </div>
 
-    <section class="card fade-in">
-      <h2>Start a new quiz</h2>
-      <div class="quiz-setup">
-        <label>
-          Category
-          <select id="categorySelect">
-            <option value="JavaScript">JavaScript</option>
-            <option value="HTML">HTML</option>
-            <option value="CSS">CSS</option>
-            <option value="Node.js">Node.js</option>
-            <option value="MongoDB">MongoDB</option>
-            <option value="General Knowledge">General Knowledge</option>
-            <option value="Science">Science</option>
-            <option value="Electronics">Electronics</option>
-            <option value="Programming">Programming</option>
-          </select>
+    <div class="card tape">
+      <h2>🎲 Start a new game!</h2>
+      <div class="grid-2">
+        <label>Pick a topic 🎨
+          <select id="categorySelect"><option value="">Loading... ⏳</option></select>
         </label>
-        <label>
-          Difficulty
+        <label>How tricky? 🤔
           <select id="difficultySelect">
-            <option value="mixed">Mixed</option>
-            <option value="easy">Easy (10 pts)</option>
-            <option value="medium">Medium (20 pts)</option>
-            <option value="hard">Hard (30 pts)</option>
+            <option value="easy">😊 Easy peasy</option>
+            <option value="medium">🤩 Tricky</option>
+            <option value="hard">🧠 Super hard</option>
           </select>
         </label>
-        <button id="startQuizBtn" class="btn btn-primary btn-large">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg>
-          Start quiz
-        </button>
       </div>
-      <p class="hint">10 questions · 30 seconds each · no repeats in a session</p>
-    </section>
+      <button id="startQuizBtn" class="btn btn-primary" style="margin-top:0.5rem">Let's play! 🚀</button>
+    </div>
 
-    <section class="card fade-in">
-      <h2>Recent quizzes</h2>
+    <div class="card">
+      <h2>🕹️ Your recent games</h2>
       <div id="recentList" class="recent-list">
-        <p class="muted">No quizzes yet — play your first one above.</p>
+        <p class="muted">No games yet — your scores will show up here! 🎮</p>
       </div>
-    </section>
+    </div>
   </main>
+
+  <footer class="footer">Made with 💖 for curious minds · QuizGame</footer>
 
   <script src="js/common.js"></script>
   <script src="js/dashboard.js"></script>

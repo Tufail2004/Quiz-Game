@@ -1,143 +1,137 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Panel — QuizGame</title>
+  <title>Admin — QuizGame 🛠️</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <nav class="navbar">
     <a href="dashboard.html" class="logo" aria-label="QuizGame home">
-      <span class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
-          <circle cx="12" cy="12" r="8" />
-          <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none" />
-        </svg>
-      </span>
+      <span class="logo-mark" aria-hidden="true">🎮</span>
       <span class="logo-word">QuizGame</span>
     </a>
     <div class="nav-links">
-      <a href="dashboard.html">Dashboard</a>
-      <a href="leaderboard.html">Leaderboard</a>
-      <a href="history.html">History</a>
-      <a href="admin.html" id="adminLink" class="active">Admin</a>
+      <a href="dashboard.html">🏠 Home</a>
+      <a href="leaderboard.html">🏆 Ranks</a>
+      <a href="history.html">📚 My games</a>
+      <a href="admin.html" id="adminLink" class="active">🛠️ Admin</a>
     </div>
     <div class="nav-right">
-      <button id="themeToggle" class="icon-btn" title="Toggle light/dark mode" aria-label="Toggle color theme"></button>
+      <button id="themeToggle" class="icon-btn" title="Day / night mode" aria-label="Toggle color theme"></button>
       <span id="navUserName" class="nav-user"></span>
-      <button id="logoutBtn" class="btn btn-small">Log out</button>
+      <button id="logoutBtn" class="btn btn-small">Bye! 👋</button>
     </div>
   </nav>
 
   <main class="container">
-    <div class="page-head fade-in">
-      <span class="eyebrow">Administration</span>
+    <div class="page-head bounce-in">
+      <span class="eyebrow">🛠️ Control room</span>
       <h1>Admin panel</h1>
     </div>
 
     <div id="accessDenied" class="card center hidden">
-      <p class="error-text">Access denied — this area is for admins only.</p>
-      <a href="dashboard.html" class="btn" style="margin-top:1rem">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M11 18l-6-6 6-6"/></svg>
-        Back to dashboard
-      </a>
+      <p class="error-text">Oops! This area is for admins only. 🔒</p>
+      <a href="dashboard.html" class="btn btn-primary" style="margin-top:1rem">← Back home 🏠</a>
     </div>
 
     <div id="adminContent" class="hidden">
       <div class="tabs">
-        <button class="tab active" data-tab="questions">Questions</button>
-        <button class="tab" data-tab="add">Add Question</button>
-        <button class="tab" data-tab="users">Users</button>
-        <button class="tab" data-tab="results">Quiz Results</button>
+        <button class="tab active" data-tab="questions">❓ Questions</button>
+        <button class="tab" data-tab="add">➕ Add question</button>
+        <button class="tab" data-tab="users">👥 Players</button>
+        <button class="tab" data-tab="results">📊 All scores</button>
       </div>
 
       <!-- Questions list -->
       <section id="tab-questions" class="tab-panel card table-wrap">
         <div class="row-between">
-          <h2>All questions</h2>
+          <h2>All questions ❓</h2>
           <label class="inline">Filter:
-            <select id="adminCategoryFilter"><option value="">All categories</option></select>
+            <select id="adminCategoryFilter"><option value="">Everything 🌈</option></select>
           </label>
         </div>
         <table class="table">
           <thead>
-            <tr><th>Question</th><th>Category</th><th>Difficulty</th><th>Actions</th></tr>
+            <tr><th>Question</th><th>Topic</th><th>Level</th><th>Actions</th></tr>
           </thead>
           <tbody id="adminQuestionsBody">
-            <tr><td colspan="4" class="center muted">Loading…</td></tr>
+            <tr><td colspan="4" class="center muted">Loading... ⏳</td></tr>
           </tbody>
         </table>
       </section>
 
       <!-- Add / edit question -->
       <section id="tab-add" class="tab-panel card hidden">
-        <h2 id="questionFormTitle">Add question</h2>
+        <h2 id="questionFormTitle">➕ Add a question!</h2>
         <div id="qFormError" class="error-box hidden"></div>
         <form id="questionForm" novalidate>
           <input type="hidden" id="qId" />
-          <label>Question<textarea id="qText" rows="2" required placeholder="e.g. What does HTML stand for?"></textarea></label>
+          <label>Question ❓<textarea id="qText" rows="2" required placeholder="e.g. What sound does a cow make? 🐄"></textarea></label>
           <div class="grid-2">
-            <label>Option A<input id="qOpt0" required /></label>
-            <label>Option B<input id="qOpt1" required /></label>
-            <label>Option C<input id="qOpt2" required /></label>
-            <label>Option D<input id="qOpt3" required /></label>
+            <label>Answer A<input id="qOpt0" required placeholder="😊" /></label>
+            <label>Answer B<input id="qOpt1" required placeholder="🤩" /></label>
+            <label>Answer C<input id="qOpt2" required placeholder="😜" /></label>
+            <label>Answer D<input id="qOpt3" required placeholder="🤪" /></label>
           </div>
           <div class="grid-2">
-            <label>Correct answer
+            <label>Right answer ⭐
               <select id="qCorrect">
-                <option value="0">Option A</option>
-                <option value="1">Option B</option>
-                <option value="2">Option C</option>
-                <option value="3">Option D</option>
+                <option value="0">Answer A</option>
+                <option value="1">Answer B</option>
+                <option value="2">Answer C</option>
+                <option value="3">Answer D</option>
               </select>
             </label>
-            <label>Difficulty
+            <label>How tricky? 🤔
               <select id="qDifficulty">
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
+                <option value="easy">😊 Easy peasy</option>
+                <option value="medium">🤩 Tricky</option>
+                <option value="hard">🧠 Super hard</option>
               </select>
             </label>
           </div>
-          <label>Category
-            <input id="qCategory" list="categoryList" required placeholder="e.g. JavaScript (or type a new one)" />
+          <label>Topic 🎨
+            <input id="qCategory" list="categoryList" required placeholder="e.g. Animals 🐾" />
             <datalist id="categoryList"></datalist>
           </label>
-          <label>Explanation<textarea id="qExplanation" rows="2" placeholder="Short explanation shown after answering"></textarea></label>
+          <label>Fun fact 💡<textarea id="qExplanation" rows="2" placeholder="A cool fact shown after answering!"></textarea></label>
           <div class="row-between">
-            <button type="submit" class="btn btn-primary" id="qSubmitBtn">Add question</button>
-            <button type="button" class="btn hidden" id="qCancelBtn">Cancel edit</button>
+            <button type="submit" class="btn btn-primary" id="qSubmitBtn">Add it! ➕</button>
+            <button type="button" class="btn hidden" id="qCancelBtn">Never mind</button>
           </div>
         </form>
       </section>
 
       <!-- Users -->
       <section id="tab-users" class="tab-panel card table-wrap hidden">
-        <h2>Registered users</h2>
+        <h2>Our players! 👥</h2>
         <table class="table">
           <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Joined</th></tr></thead>
           <tbody id="adminUsersBody">
-            <tr><td colspan="4" class="center muted">Loading…</td></tr>
+            <tr><td colspan="4" class="center muted">Loading... ⏳</td></tr>
           </tbody>
         </table>
       </section>
 
       <!-- Results -->
       <section id="tab-results" class="tab-panel card table-wrap hidden">
-        <h2>All quiz results</h2>
+        <h2>Every single score! 📊</h2>
         <table class="table">
-          <thead><tr><th>Player</th><th class="num">Score</th><th class="num">Accuracy</th><th>Category</th><th>Difficulty</th><th>Date</th></tr></thead>
+          <thead><tr><th>Player</th><th class="num">Score</th><th class="num">Awesome %</th><th>Topic</th><th>Level</th><th>Date</th></tr></thead>
           <tbody id="adminResultsBody">
-            <tr><td colspan="6" class="center muted">Loading…</td></tr>
+            <tr><td colspan="6" class="center muted">Loading... ⏳</td></tr>
           </tbody>
         </table>
       </section>
     </div>
   </main>
+
+  <footer class="footer">Made with 💖 for curious minds · QuizGame</footer>
 
   <script src="js/common.js"></script>
   <script src="js/admin.js"></script>
