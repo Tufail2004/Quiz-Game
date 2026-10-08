@@ -172,7 +172,6 @@ async function loadUsers() {
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td>${escapeHtml(u.name)}</td>
-      <td>${escapeHtml(u.email)}</td>
       <td>${escapeHtml(u.role)}</td>
       <td>${new Date(u.createdAt).toLocaleDateString()}</td>
     `;

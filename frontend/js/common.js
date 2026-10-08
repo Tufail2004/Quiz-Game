@@ -41,13 +41,13 @@ async function apiFetch(path, options = {}) {
   const res = await fetch(API_BASE + path, { ...options, headers });
 
   if (res.status === 401) {
-    // Token expired/invalid -> log out and send back to the login page.
+    // Token expired/invalid -> clear and send back to the name screen.
     clearAuth();
     const page = location.pathname.split('/').pop();
-    if (page !== 'login.html' && page !== 'register.html' && page !== 'index.html' && page !== '') {
-      location.href = 'login.html';
+    if (page !== 'register.html' && page !== 'index.html' && page !== '') {
+      location.href = 'register.html';
     }
-    throw new Error('Session expired. Please log in again.');
+    throw new Error('Please enter your name again to keep playing 😊');
   }
 
   const data = await res.json().catch(() => ({}));
@@ -56,8 +56,9 @@ async function apiFetch(path, options = {}) {
 }
 
 // ---------- Page guards ----------
+// No email/password — a "logged in" player is just a name + token.
 function requireAuth() {
-  if (!getToken()) location.href = 'login.html';
+  if (!getToken()) location.href = 'register.html';
 }
 function requireGuest() {
   if (getToken()) location.href = 'dashboard.html';
