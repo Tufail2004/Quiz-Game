@@ -64,7 +64,8 @@ function renderQuestion() {
     `${(currentIndex / questions.length) * 100}%`;
 
   const badge = document.getElementById('difficultyBadge');
-  badge.textContent = q.difficulty;
+  const labels = { easy: '😊 Easy peasy', medium: '🤩 Tricky', hard: '🧠 Super hard' };
+  badge.textContent = labels[q.difficulty] || q.difficulty;
   badge.className = `difficulty-badge ${q.difficulty}`;
 
   document.getElementById('questionText').textContent = q.question;
