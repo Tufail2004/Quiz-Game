@@ -12,7 +12,7 @@ async function initLeaderboard() {
     const entries = await apiFetch('/leaderboard');
 
     if (entries.length === 0) {
-      body.innerHTML = '<tr><td colspan="7" class="center muted">No scores yet — be the first.</td></tr>';
+      body.innerHTML = '<tr><td colspan="7" class="center muted">No scores yet — be the first champion! 🏆</td></tr>';
       return;
     }
 
@@ -20,10 +20,11 @@ async function initLeaderboard() {
     entries.forEach((entry, i) => {
       const rank = i + 1;
       const medalClass = rank <= 3 ? `rank-medal r${rank}` : 'rank-medal';
+      const medal = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : `#${rank}`;
       const date = new Date(entry.createdAt).toLocaleDateString();
       const tr = document.createElement('tr');
       tr.innerHTML = `
-        <td><span class="${medalClass}">${rank}</span></td>
+        <td><span class="${medalClass}">${medal}</span></td>
         <td>${escapeHtml(entry.user ? entry.user.name : 'Unknown')}</td>
         <td class="num"><strong>${entry.score}</strong></td>
         <td class="num">${entry.percentage}%</td>
