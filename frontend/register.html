@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Join free — QuizGame 🎉</title>
+  <title>What's your name? — QuizGame 🎮</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="css/auth.css" />
 </head>
 <body>
-  <nav class="navbar">
+  <nav class="navbar simple">
     <a href="index.html" class="logo" aria-label="QuizGame home">
       <span class="logo-mark" aria-hidden="true">🎮</span>
       <span class="logo-word">QuizGame</span>
@@ -21,27 +21,24 @@
     </div>
   </nav>
 
-  <main class="auth-page">
-    <div class="auth-card tape">
-      <span class="mascot" aria-hidden="true">🎉</span>
-      <h1>Join the fun!</h1>
-      <p class="sub">Create your free account and start playing in seconds! ⭐</p>
+  <main class="auth-wrap">
+    <div class="auth-card bounce-in">
+      <div class="mascot wiggle" aria-hidden="true">🎮</div>
+      <h1>What's your name? 😊</h1>
+      <p class="muted">Just tell us your name and jump right in —<br />no email needed! 🎉</p>
+
       <div id="formError" class="error-box hidden"></div>
-      <form id="registerForm" novalidate>
+
+      <form id="nameForm" novalidate>
         <label>Your name
-          <input type="text" id="name" required placeholder="Pick a cool name 😎" autocomplete="name" />
+          <input id="playerName" type="text" maxlength="30" autocomplete="off" placeholder="Pick a cool name 😎" required />
         </label>
-        <label>Email
-          <input type="email" id="email" required placeholder="you@example.com" autocomplete="email" />
-        </label>
-        <label>Password
-          <input type="password" id="password" required minlength="6" placeholder="At least 6 characters 🔒" autocomplete="new-password" />
-        </label>
-        <button type="submit" class="btn btn-primary" id="submitBtn" style="width:100%">Create my account! 🎮</button>
+        <button type="submit" id="submitBtn" class="btn btn-primary btn-big">Let's play! 🚀</button>
       </form>
-      <p class="auth-alt">Already playing? <a href="login.html">Log in 👋</a></p>
     </div>
   </main>
+
+  <footer class="footer">Made with 💖 for curious minds · QuizGame</footer>
 
   <script src="js/common.js"></script>
   <script src="js/auth.js"></script>
