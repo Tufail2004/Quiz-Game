@@ -129,7 +129,7 @@ async function getAllResults(req, res, next) {
   try {
     const results = await QuizResult.find()
       .sort({ createdAt: -1 })
-      .populate('user', 'name email');
+      .populate('user', 'name');
     res.json(results);
   } catch (error) {
     next(error);
