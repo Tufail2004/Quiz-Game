@@ -1,46 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Log in — QuizGame 🎮</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/auth.css" />
+  <meta http-equiv="refresh" content="0; url=register.html" />
+  <title>QuizGame 🎮</title>
 </head>
 <body>
-  <nav class="navbar">
-    <a href="index.html" class="logo" aria-label="QuizGame home">
-      <span class="logo-mark" aria-hidden="true">🎮</span>
-      <span class="logo-word">QuizGame</span>
-    </a>
-    <div class="nav-right">
-      <button id="themeToggle" class="icon-btn" title="Day / night mode" aria-label="Toggle color theme"></button>
-    </div>
-  </nav>
-
-  <main class="auth-page">
-    <div class="auth-card tape">
-      <span class="mascot" aria-hidden="true">👋</span>
-      <h1>Welcome back!</h1>
-      <p class="sub">Ready for another round? Let's go! 🚀</p>
-      <div id="formError" class="error-box hidden"></div>
-      <form id="loginForm" novalidate>
-        <label>Email
-          <input type="email" id="email" required placeholder="you@example.com" autocomplete="email" />
-        </label>
-        <label>Password
-          <input type="password" id="password" required placeholder="Your secret password 🤫" autocomplete="current-password" />
-        </label>
-        <button type="submit" class="btn btn-primary" id="submitBtn" style="width:100%">Let's play! 🎮</button>
-      </form>
-      <p class="auth-alt">New here? <a href="register.html">Create a free account 🎉</a></p>
-    </div>
-  </main>
-
-  <script src="js/common.js"></script>
-  <script src="js/auth.js"></script>
+  <p>🎮 Taking you to the game... <a href="register.html">tap here if nothing happens</a></p>
+  <script>location.replace('register.html');</script>
 </body>
 </html>
