@@ -1,72 +1,68 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Results — QuizGame</title>
+  <title>Your score! — QuizGame 🏆</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <nav class="navbar">
     <a href="dashboard.html" class="logo" aria-label="QuizGame home">
-      <span class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
-          <circle cx="12" cy="12" r="8" />
-          <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none" />
-        </svg>
-      </span>
+      <span class="logo-mark" aria-hidden="true">🎮</span>
       <span class="logo-word">QuizGame</span>
     </a>
     <div class="nav-links">
-      <a href="dashboard.html">Dashboard</a>
-      <a href="leaderboard.html">Leaderboard</a>
-      <a href="history.html">History</a>
-      <a href="admin.html" id="adminLink" class="hidden">Admin</a>
+      <a href="dashboard.html">🏠 Home</a>
+      <a href="leaderboard.html">🏆 Ranks</a>
+      <a href="history.html">📚 My games</a>
+      <a href="admin.html" id="adminLink" class="hidden">🛠️ Admin</a>
     </div>
     <div class="nav-right">
-      <button id="themeToggle" class="icon-btn" title="Toggle light/dark mode" aria-label="Toggle color theme"></button>
+      <button id="themeToggle" class="icon-btn" title="Day / night mode" aria-label="Toggle color theme"></button>
       <span id="navUserName" class="nav-user"></span>
-      <button id="logoutBtn" class="btn btn-small">Log out</button>
+      <button id="logoutBtn" class="btn btn-small">Bye! 👋</button>
     </div>
   </nav>
 
   <main class="container">
-    <div id="resultCard" class="card result-card fade-in hidden">
-      <div class="result-ring" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M7 6H4a2 2 0 0 0 2 4h1M17 6h3a2 2 0 0 1-2 4h-1"/></svg>
+    <div id="noResultBox" class="card center hidden">
+      <div style="font-size:3rem">🤔</div>
+      <p class="muted">Hmm, no game found! Play one first! 🎮</p>
+      <a href="dashboard.html" class="btn btn-primary" style="margin-top:1rem">Let's play! 🚀</a>
+    </div>
+
+    <div id="resultCard" class="hidden">
+      <div class="result-hero">
+        <div class="score-ring"><div class="inner"><b id="finalScore" class="num">0</b></div></div>
+        <h1>Yay, you did it! 🎉</h1>
+        <p class="perf-msg" id="performanceMsg"></p>
       </div>
-      <span class="eyebrow">Quiz completed</span>
-      <p id="performanceMsg" class="performance-msg"></p>
 
-      <div class="big-score num"><span id="finalScore">0</span><small> pts</small></div>
+      <div class="breakdown">
+        <div class="bk ok"><b id="rCorrect" class="num">0</b><span>✅ Right!</span></div>
+        <div class="bk no"><b id="rIncorrect" class="num">0</b><span>❌ Oops</span></div>
+        <div class="bk skip"><b id="rUnanswered" class="num">0</b><span>⏭️ Skipped</span></div>
+        <div class="bk time"><b id="rTime" class="num">0s</b><span>⏱️ Time</span></div>
+      </div>
 
-      <div class="stats-grid">
-        <div class="stat-card"><div class="stat-value num" id="rCorrect">0</div><div class="stat-label">Correct</div></div>
-        <div class="stat-card"><div class="stat-value num" id="rIncorrect">0</div><div class="stat-label">Incorrect</div></div>
-        <div class="stat-card"><div class="stat-value num" id="rUnanswered">0</div><div class="stat-label">Unanswered</div></div>
-        <div class="stat-card"><div class="stat-value num" id="rPercentage">0%</div><div class="stat-label">Accuracy</div></div>
-        <div class="stat-card"><div class="stat-value num" id="rTotal">0</div><div class="stat-label">Questions</div></div>
-        <div class="stat-card"><div class="stat-value num" id="rTime">0s</div><div class="stat-label">Time taken</div></div>
+      <div class="card center">
+        <h2>Your report card 📝</h2>
+        <p class="muted"><span id="rTotal" class="num">0</span> questions · <span id="rPercentage" class="num">0%</span> awesome!</p>
       </div>
 
       <div class="result-actions">
-        <button id="playAgainBtn" class="btn btn-primary btn-large">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
-          Play again
-        </button>
-        <a href="dashboard.html" class="btn btn-large">Choose category</a>
-        <a href="leaderboard.html" class="btn btn-large">View leaderboard</a>
+        <button id="playAgainBtn" class="btn btn-primary">Play again! 🔄</button>
+        <a href="dashboard.html" class="btn">🏠 Home</a>
+        <a href="leaderboard.html" class="btn btn-purple">🏆 See ranks</a>
       </div>
     </div>
-
-    <div id="noResultBox" class="card center hidden">
-      <p class="muted">No result to show — play a quiz first.</p>
-      <a href="dashboard.html" class="btn btn-primary" style="margin-top:1rem">Go to dashboard</a>
-    </div>
   </main>
+
+  <footer class="footer">Made with 💖 for curious minds · QuizGame</footer>
 
   <script src="js/common.js"></script>
   <script src="js/result.js"></script>
