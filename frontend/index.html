@@ -1,89 +1,92 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QuizGame — Test Your Knowledge</title>
+  <title>QuizGame — Play, Learn, Win! 🎮</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <nav class="navbar">
     <a href="index.html" class="logo" aria-label="QuizGame home">
-      <span class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
-          <circle cx="12" cy="12" r="8" />
-          <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none" />
-        </svg>
-      </span>
+      <span class="logo-mark" aria-hidden="true">🎮</span>
       <span class="logo-word">QuizGame</span>
     </a>
     <div class="nav-right">
-      <button id="themeToggle" class="icon-btn" title="Toggle light/dark mode" aria-label="Toggle color theme"></button>
+      <button id="themeToggle" class="icon-btn" title="Day / night mode" aria-label="Toggle color theme"></button>
       <a href="login.html" class="btn btn-small">Log in</a>
-      <a href="register.html" class="btn btn-small btn-primary">Sign up</a>
+      <a href="register.html" class="btn btn-small btn-primary">Join free! 🎉</a>
     </div>
   </nav>
 
-  <main class="landing">
-    <section class="hero fade-in">
-      <span class="eyebrow">Node.js · Express · MongoDB</span>
-      <h1>Test your knowledge.<br /><span class="accent-word">Beat the clock.</span></h1>
-      <p class="hero-sub">
-        Ten questions, thirty seconds each, scored by difficulty.
-        Climb the global leaderboard and track every result.
-      </p>
-      <div class="hero-actions">
-        <a href="register.html" class="btn btn-primary btn-large">
-          Start playing
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-        </a>
-        <a href="login.html" class="btn btn-large">I have an account</a>
+  <main class="container">
+    <section class="hero bounce-in">
+      <div class="hero-art" aria-hidden="true">🎮 ⭐ 🏆 🎈</div>
+      <h1>Let's play! <span class="hl-pink">Answer fast,</span><br /><span class="hl-purple">score big,</span> <span class="hl-blue">have fun!</span></h1>
+      <p class="hero-sub">10 fun questions, 30 seconds each. Pick your favorite topic, beat the clock, and climb to the top of the leaderboard! 🚀</p>
+      <div class="hero-cta">
+        <a href="register.html" class="btn btn-primary">Start playing — it's free! 🎮</a>
+        <a href="login.html" class="btn">I have an account</a>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat"><b class="num">10</b><span>questions per round</span></div>
-        <div class="hero-stat"><b class="num">30s</b><span>on the clock</span></div>
-        <div class="hero-stat"><b class="num">5</b><span>categories</span></div>
+        <div class="hstat"><b>10</b><span>❓ questions per game</span></div>
+        <div class="hstat"><b>30s</b><span>⏱️ on the clock</span></div>
+        <div class="hstat"><b>5</b><span>🎨 fun categories</span></div>
       </div>
     </section>
 
-    <section class="features">
-      <div class="feature-card slide-up" style="--d:0.05s">
-        <div class="icon-tile" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
-        </div>
-        <h3>Timed questions</h3>
-        <p>Thirty seconds per question. Answer fast — or lose the point.</p>
+    <section>
+      <div class="page-head center">
+        <span class="eyebrow">✨ Why you'll love it</span>
+        <h2>Games that make you smarter!</h2>
       </div>
-      <div class="feature-card slide-up" style="--d:0.12s">
-        <div class="icon-tile" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 20h18"/><path d="M6 20v-7M11 20V8M16 20v-4M21 20V6"/></svg>
+      <div class="features">
+        <div class="feature-card pop-in">
+          <span class="ficon">⏱️</span>
+          <h3>Beat the clock!</h3>
+          <p>30 seconds per question. Think fast, answer faster — every second counts! ⚡</p>
         </div>
-        <h3>Difficulty levels</h3>
-        <p>Easy pays 10, medium 20, hard 30. Pick your poison — or mix them.</p>
-      </div>
-      <div class="feature-card slide-up" style="--d:0.19s">
-        <div class="icon-tile" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M7 6H4a2 2 0 0 0 2 4h1M17 6h3a2 2 0 0 1-2 4h-1"/></svg>
+        <div class="feature-card pop-in">
+          <span class="ficon">🎯</span>
+          <h3>Pick your level</h3>
+          <p>Easy peasy, tricky, or super hard. Harder questions = more points! 💪</p>
         </div>
-        <h3>Global leaderboard</h3>
-        <p>Every score is ranked worldwide. Take the top spot and hold it.</p>
-      </div>
-      <div class="feature-card slide-up" style="--d:0.26s">
-        <div class="icon-tile" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+        <div class="feature-card pop-in">
+          <span class="ficon">🏆</span>
+          <h3>Be a champion</h3>
+          <p>Every score goes on the leaderboard. Can you become number one? 👑</p>
         </div>
-        <h3>Track progress</h3>
-        <p>Dashboard stats, accuracy trends and a full history of every game.</p>
+        <div class="feature-card pop-in">
+          <span class="ficon">📈</span>
+          <h3>Watch yourself grow</h3>
+          <p>See your scores, track your best games, and keep getting better! 🌟</p>
+        </div>
       </div>
+    </section>
+
+    <section>
+      <div class="page-head center">
+        <span class="eyebrow">🎲 How it works</span>
+        <h2>Easy as 1, 2, 3!</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="step-num">1</span><p><strong>Create your free account</strong> — pick a cool username and you're in! 😎</p></div>
+        <div class="step"><span class="step-num">2</span><p><strong>Choose a category &amp; difficulty</strong> — animals, science, sports and more! 🎨</p></div>
+        <div class="step"><span class="step-num">3</span><p><strong>Play &amp; climb the ranks</strong> — answer fast, score big, show your friends! 🏆</p></div>
+      </div>
+    </section>
+
+    <section class="cta-band bounce-in">
+      <h2>Ready for some fun? 🎉</h2>
+      <p>Join thousands of players. Free forever, no boring stuff!</p>
+      <a href="register.html" class="btn btn-sunny">Let's go! 🚀</a>
     </section>
   </main>
 
-  <footer class="footer">
-    <p>QuizGame — a full-stack portfolio project · Node.js + Express + MongoDB</p>
-  </footer>
+  <footer class="footer">Made with 💖 for curious minds · QuizGame</footer>
 
   <script src="js/common.js"></script>
 </body>
